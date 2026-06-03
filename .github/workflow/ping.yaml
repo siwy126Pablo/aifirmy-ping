@@ -1,1 +1,13 @@
-d
+name: Keep Supabase alive
+
+on:
+  schedule:
+    - cron: '0 12 */5 * *'  # co 5 dni o 12:00
+  workflow_dispatch:         # możliwość ręcznego uruchomienia
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: curl -s https://szassqzvivdgvpkciyif.supabase.co
